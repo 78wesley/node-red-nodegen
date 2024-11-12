@@ -1,13 +1,13 @@
 {
-  "name": "node-red-nodegen",
-  "version": "1.0.7",
+  "name": "@78wesley/node-red-nodegen",
+  "version": "1.0.8",
   "description": "Node generator for Node-RED",
   "homepage": "http://nodered.org",
   "main": "./lib/nodegen.js",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/78wesley/node-red-nodegen.git"
+    "url": "https://github.com/78wesley/node-red-nodegen.git"
   },
   "engines": {
     "node": ">=14"
