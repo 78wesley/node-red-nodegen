@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/node-red/node-red-nodegen.git"
+    "url": "git+https://github.com/78wesley/node-red-nodegen.git"
   },
   "engines": {
     "node": ">=14"
@@ -79,7 +79,7 @@
     "test": "grunt"
   },
   "bugs": {
-    "url": "https://github.com/node-red/node-red-nodegen/issues"
+    "url": "https://github.com/78wesley//node-red-nodegen/issues"
   },
   "directories": {
     "doc": "docs",
