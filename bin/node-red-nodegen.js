@@ -99,9 +99,7 @@ function version() {
 }
 
 function skipBom(body) {
-    if (body[0]===0xEF &&
-        body[1]===0xBB &&
-        body[2]===0xBF) {
+    if (body[0] === 0xEF && body[1] === 0xBB && body[2] === 0xBF) {
         return body.slice(3);
     } else {
         return body;
@@ -112,6 +110,10 @@ function isSubflowDefinition(data) {
     return data.find((item) => {
         return item.type === "subflow";
     });
+}
+
+function hasMultipleSubflows(list) {
+    return list.filter(item => item.type === "subflow").length > 1;
 }
 
 if (argv.help || argv.h) {
@@ -135,7 +137,22 @@ if (argv.help || argv.h) {
             if (Array.isArray(content)) {
                 data.src = content;
                 if (isSubflowDefinition(content)) {
-                    promise = nodegen.SubflowNodeGenerator(data, options);
+                    if (hasMultipleSubflows(content)) {
+                        if (!data.name) {
+                            console.error("You need to add the --name variable");
+                            return;
+                        }
+                        try {
+                            fs.mkdirSync(data.name);
+                        } catch (error) {
+                            if (error.code !== "EEXIST") {
+                                throw error;
+                            }
+                        }
+                        promise = nodegen.SubflowsNodeGenerator(data, options)
+                    } else {
+                        promise = nodegen.SubflowNodeGenerator(data, options);
+                    }
                 }
                 else {
                     promise = nodegen.FunctionNodeGenerator(data, options);
