@@ -79,7 +79,7 @@
     "test": "grunt"
   },
   "bugs": {
-    "url": "https://github.com/78wesley//node-red-nodegen/issues"
+    "url": "https://github.com/78wesley/node-red-nodegen/issues"
   },
   "directories": {
     "doc": "docs",
